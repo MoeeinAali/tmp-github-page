@@ -1,6 +1,6 @@
 use this code for all demo templates:
 ```html
- <iframe
+<iframe
       src=""
       frameborder="0"
       id="myIframe"
@@ -21,19 +21,22 @@ use this code for all demo templates:
     </iframe>
 
     <script>
+      const myIframe = document.querySelector('#myIframe')
+
       function getQueryParam(name) {
         const urlParams = new URLSearchParams(window.location.search)
         return urlParams.get(name)
       }
-      const newUrl = getQueryParam('url')
+
+      let newUrl = getQueryParam('ad')
+      const click_url = getQueryParam('click_url') || 'https://google.com'
+
+      if (click_url) {
+        newUrl += `?click_url=${click_url}`
+      }
+
       if (newUrl) {
-        const myIframe = document.querySelector('#myIframe')
         myIframe.src = newUrl
-        const scriptElement = myIframe.contentDocument.createElement('script')
-        scriptElement.textContent = `
-        document.addEventListener('click', () => { open("https://google.com") });
-    `
-        myIframe.contentDocument.body.appendChild(scriptElement)
       }
     </script>
 
