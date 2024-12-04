@@ -1,3 +1,8 @@
+url:
+```
+https://moeeinaali.github.io/tmp-github-page/iranjib/?ad=<Tasvir-URL>&landing=<Landing-url>
+```
+
 use this code for all demo templates:
 ```html
 <iframe
