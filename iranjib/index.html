@@ -5364,18 +5364,22 @@
     </iframe>
 
     <script>
+      const myIframe = document.querySelector('#myIframe')
+
       function getQueryParam(name) {
         const urlParams = new URLSearchParams(window.location.search)
         return urlParams.get(name)
       }
-      const newUrl = getQueryParam('ad')
-      const landingUrl = getQueryParam('landing') || "https://google.com"
+
+      let newUrl = getQueryParam('ad')
+      const click_url = getQueryParam('click_url') || 'https://google.com'
+
+      if (click_url) {
+        newUrl += `?click_url=${click_url}`
+      }
+
       if (newUrl) {
-        const myIframe = document.querySelector('#myIframe')
         myIframe.src = newUrl
-        const scriptElement = myIframe.contentDocument.createElement('script')
-        scriptElement.textContent = `document.addEventListener('click', () => { open(${landingUrl}) });`
-        myIframe.contentDocument.body.appendChild(scriptElement)
       }
     </script>
 
