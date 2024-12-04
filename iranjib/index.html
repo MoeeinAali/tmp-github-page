@@ -5368,14 +5368,13 @@
         const urlParams = new URLSearchParams(window.location.search)
         return urlParams.get(name)
       }
-      const newUrl = getQueryParam('url')
+      const newUrl = getQueryParam('ad')
+      const landingUrl = getQueryParam('landing') || "https://google.com"
       if (newUrl) {
         const myIframe = document.querySelector('#myIframe')
         myIframe.src = newUrl
         const scriptElement = myIframe.contentDocument.createElement('script')
-        scriptElement.textContent = `
-        document.addEventListener('click', () => { open("https://google.com") });
-    `
+        scriptElement.textContent = `document.addEventListener('click', () => { open(${landingUrl}) });`
         myIframe.contentDocument.body.appendChild(scriptElement)
       }
     </script>
