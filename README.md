@@ -1,6 +1,6 @@
 url:
 ```
-https://moeeinaali.github.io/tmp-github-page/iranjib/?ad=<Tasvir-URL>&landing=<Landing-url>
+https://moeeinaali.github.io/tmp-github-page/iranjib/?ad=<Tasvir-URL>&click_url=<Landing-url>
 ```
 
 use this code for all demo templates:
